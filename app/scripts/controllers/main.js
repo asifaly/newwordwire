@@ -1,3 +1,7 @@
+/*jslint devel: true, maxerr: 50*/
+/*global wordWire*/
+/*global angular*/
+/*global Firebase*/
 'use strict';
 
 /**
@@ -9,7 +13,7 @@
  */
 angular.module('wwnewApp')
     .controller('WordCtrl', ['$scope', '$firebase', 'FIREBASE_URI', '$timeout', '$window', '$filter', 'Auth', 'UserService', 'WordsService', '$location',
-    function ($scope, $firebase, FIREBASE_URI, $timeout, $window, $filter, Auth, UserService, WordsService, $location) {
+        function ($scope, $firebase, FIREBASE_URI, $timeout, $window, $filter, Auth, UserService, WordsService, $location) {
             //initialize pattern if it is not done, when app initializes, there is an error for invalid pattern
             $scope.stats = {};
             $scope.stats.pattern = new RegExp();

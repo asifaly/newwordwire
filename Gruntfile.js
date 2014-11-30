@@ -421,7 +421,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    //'concurrent:dist',
+    //'concurrent:dist', was failing for some reason maybe due to imagemin and svgmin issue
     'compass',
     'imagemin',
     'svgmin',

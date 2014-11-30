@@ -1,3 +1,7 @@
+/*jslint devel: true, maxerr: 50*/
+/*global wordWire*/
+/*global angular*/
+/*global Firebase*/
 'use strict';
 
 /**
@@ -10,17 +14,17 @@
  */
 angular
     .module('wwnewApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'firebase'
-  ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$templateCache', '$http', '$rootScope', '$location',
-    function ($templateCache, $http, $rootScope, $location) {
-/*            $http.get('views/login.html', {
+        'ngAnimate',
+        'ngCookies',
+        'ngMessages',
+        'ngResource',
+        'ngRoute',
+        'ngSanitize',
+        'ngTouch',
+        'firebase'
+    ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$templateCache', '$http', '$rootScope', '$location',
+        function ($templateCache, $http, $rootScope, $location) {
+            /*            $http.get('views/login.html', {
                 cache: $templateCache
             });
             $http.get('views/game.html', {
@@ -40,60 +44,60 @@ angular
                     $location.path("/login");
                 }
             });
-}]).config(['$routeProvider',
+        }]).config(['$routeProvider',
         function ($routeProvider) {
             $routeProvider.
-            when('/game', {
-                templateUrl: 'views/game.html',
-                controller: 'WordCtrl',
-                resolve: {
-                    'currentAuth': ['Auth',
-                    function (Auth) {
-                            return Auth.$requireAuth();
-                    }]
-                }
-            }).
-            when('/login', {
-                templateUrl: 'views/login.html',
-                controller: 'WordCtrl',
-                resolve: {
-                    'currentAuth': ['Auth',
-                    function (Auth) {
-                            return Auth.$waitForAuth();
-                    }]
-                }
-            }).
-            when('/players', {
-                templateUrl: 'views/players.html',
-                controller: 'WordCtrl',
-                resolve: {
-                    'currentAuth': ['Auth',
-                    function (Auth) {
-                            return Auth.$requireAuth();
-                    }]
-                }
-            }).
-            when('/words', {
-                templateUrl: 'views/words.html',
-                controller: 'WordCtrl',
-                resolve: {
-                    'currentAuth': ['Auth',
-                    function (Auth) {
-                            return Auth.$requireAuth();
-                    }]
-                }
-            }).
-            when('/main', {
-                templateUrl: 'views/main.html',
-                controller: 'WordCtrl',
-/*                resolve: {
-                    'currentAuth': ['Auth',
-                    function (Auth) {
-                            return Auth.$requireAuth();
-                    }]
-                }*/
-            }).
-            otherwise({
-                redirectTo: '/main'
-            });
-    }]);
+                when('/game', {
+                    templateUrl: 'views/game.html',
+                    controller: 'WordCtrl',
+                    resolve: {
+                        'currentAuth': ['Auth',
+                            function (Auth) {
+                                return Auth.$requireAuth();
+                            }]
+                    }
+                }).
+                when('/login', {
+                    templateUrl: 'views/login.html',
+                    controller: 'WordCtrl',
+                    resolve: {
+                        'currentAuth': ['Auth',
+                            function (Auth) {
+                                return Auth.$waitForAuth();
+                            }]
+                    }
+                }).
+                when('/players', {
+                    templateUrl: 'views/players.html',
+                    controller: 'WordCtrl',
+                    resolve: {
+                        'currentAuth': ['Auth',
+                            function (Auth) {
+                                return Auth.$requireAuth();
+                            }]
+                    }
+                }).
+                when('/words', {
+                    templateUrl: 'views/words.html',
+                    controller: 'WordCtrl',
+                    resolve: {
+                        'currentAuth': ['Auth',
+                            function (Auth) {
+                                return Auth.$requireAuth();
+                            }]
+                    }
+                }).
+                when('/main', {
+                    templateUrl: 'views/main.html',
+                    controller: 'WordCtrl'
+                    /*                resolve: {
+                        'currentAuth': ['Auth',
+                        function (Auth) {
+                                return Auth.$requireAuth();
+                        }]
+                    }*/
+                }).
+                otherwise({
+                    redirectTo: '/main'
+                });
+        }]);

@@ -1,3 +1,7 @@
+/*jslint devel: true, maxerr: 50*/
+/*global wordWire*/
+/*global angular*/
+/*global Firebase*/
 'use strict';
 
 /**
@@ -65,4 +69,4 @@ angular.module('wwnewApp')
                     return onlineRef;
                 }
             };
-    }]);
+        }]);

@@ -87,4 +87,4 @@ angular.module('wwnewApp')
                     return deferred.promise;
                 }
             };
-    }]);
+        }]);
