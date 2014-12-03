@@ -22,22 +22,22 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" data-ng-controller="WordCtrl">
+    <div class="container">
         <div class="header">
-            <ul class="nav nav-pills pull-right">
-                <li data-data-ng-class="{active:isActive('/main')}"><a data-ng-href="#">Home</a>
+            <ul class="nav nav-pills pull-right" data-ng-controller="UserCtrl as usr">
+                <li data-data-ng-class="{active:usr.isActive('/main')}"><a data-ng-href="#">Home</a>
                 </li>
-                <li data-ng-class="{active:isActive('/login')}"><a data-ng-href="#/login">Login</a>
+                <li data-ng-class="{active:usr.isActive('/login')}"><a data-ng-href="#/login">Login</a>
                 </li>
-                <li data-ng-class="{active:isActive('/game')}"><a data-ng-href="#/game">Game</a>
+                <li data-ng-class="{active:usr.isActive('/game')}"><a data-ng-href="#/game">Game</a>
                 </li>
-                <li data-ng-class="{active:isActive('/words')}"><a data-ng-href="#/words">Words</a>
+                <li data-ng-class="{active:usr.isActive('/words')}"><a data-ng-href="#/words">Words</a>
                 </li>
-                <li data-ng-class="{active:isActive('/players')}"><a data-ng-href="#/players">Players</a>
+                <li data-ng-class="{active:usr.isActive('/players')}"><a data-ng-href="#/players">Players</a>
                 </li>
-                <li data-ng-hide="user.displayName == ''">
-                    <a data-ng-href="" data-ng-click="logout()">
-                        <img data-ng-src="{{user.avatar}}" height="45" width="45" alt="profile pic" class="picy" />
+                <li data-ng-hide="usr.user.displayName === ''">
+                    <a data-ng-href="" data-ng-click="usr.logout()">
+                        <img data-ng-src="{{usr.user.avatar}}" height="45" width="45" alt="profile pic" class="picy" />
                     </a>
 
                 </li>
@@ -117,6 +117,8 @@
     <script src="scripts/services/userservice.js"></script>
     <script src="scripts/services/wordsservice.js"></script>
     <script src="scripts/services/auth.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/list.js"></script>
     <!-- endbuild -->
 </body>
 
