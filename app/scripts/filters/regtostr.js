@@ -14,16 +14,18 @@
    * Filter in the wwnewApp.
    */
   angular.module('wwnewApp')
-    .filter('regtostr', function regxTostring() {
-      return function (text, first) {
-        if (text !== undefined) {
-          text = text.toString().split("");
-          text[4] = first;
-          text = text.join("");
-          return text;
-        } else {
-          return text;
-        }
-      };
-    });
+    .filter('regtostr', regxToString);
+
+  function regxToString() {
+    return function (text, first) {
+      if (text !== undefined) {
+        text = text.toString().split("");
+        text[4] = first;
+        text = text.join("");
+        return text;
+      } else {
+        return text;
+      }
+    };
+  }
 }());

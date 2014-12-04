@@ -25,21 +25,6 @@
       'firebase'
     ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$templateCache', '$http', '$rootScope', '$location',
       function ($templateCache, $http, $rootScope, $location) {
-        /*            $http.get('views/login.html', {
-         cache: $templateCache
-         });
-         $http.get('views/game.html', {
-         cache: $templateCache
-         });
-         $http.get('views/words.html', {
-         cache: $templateCache
-         });
-         $http.get('views/players.html', {
-         cache: $templateCache
-         });
-         $http.get('views/main.html', {
-         cache: $templateCache
-         });*/
         $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
           if (error === "AUTH_REQUIRED") {
             $location.path("/login");
@@ -50,7 +35,8 @@
         $routeProvider.
           when('/game', {
             templateUrl: 'views/game.html',
-            controller: 'WordCtrl',
+            controller: 'GameCtrl',
+            controllerAs: 'gm',
             resolve: {
               'currentAuth': ['Auth',
                 function (Auth) {

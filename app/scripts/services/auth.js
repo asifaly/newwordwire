@@ -13,8 +13,10 @@
    * Service in the wwnewApp.
    */
   angular.module('wwnewApp')
-    .service('Auth', ['$firebaseAuth', 'FIREBASE_URI', function ($firebaseAuth, FIREBASE_URI) {
-      var uRef = new Firebase(FIREBASE_URI);
-      return $firebaseAuth(uRef);
-    }]);
+    .service('Auth', ['$firebaseAuth', 'FIREBASE_URI', Auth]);
+
+  function Auth($firebaseAuth, FIREBASE_URI) {
+    var uRef = new Firebase(FIREBASE_URI);
+    return $firebaseAuth(uRef);
+  }
 }());

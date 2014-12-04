@@ -14,14 +14,16 @@
    * Filter in the wwnewApp.
    */
   angular.module('wwnewApp')
-    .filter('firstlet', function firstLetter() {
-      return function (text) {
-        if (text !== undefined) {
-          text = text.charAt(text.length - 1);
-          return text;
-        } else {
-          return text;
-        }
-      };
-    });
+    .filter('firstlet', firstLetter);
+
+  function firstLetter() {
+    return function (text) {
+      if (text !== undefined) {
+        text = text.charAt(text.length - 1);
+        return text;
+      } else {
+        return text;
+      }
+    };
+  }
 }());
