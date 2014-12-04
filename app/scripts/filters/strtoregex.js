@@ -13,7 +13,7 @@
    * # strtoregex
    * Filter in the wwnewApp.
    */
-  angular.module('wwnewApp')
+  angular.module('wordWire')
     .filter('strtoregex', strToRegex);
 
   function strToRegex() {

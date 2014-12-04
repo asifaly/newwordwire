@@ -7,14 +7,14 @@
 
   /**
    * @ngdoc overview
-   * @name wwnewApp
+   * @name wordWire
    * @description
-   * # wwnewApp
+   * # wordWire
    *
    * Main module of the application.
    */
   angular
-    .module('wwnewApp', [
+    .module('wordWire', [
       'ngAnimate',
       'ngCookies',
       'ngMessages',
@@ -23,8 +23,8 @@
       'ngSanitize',
       'ngTouch',
       'firebase'
-    ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$templateCache', '$http', '$rootScope', '$location',
-      function ($templateCache, $http, $rootScope, $location) {
+    ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$rootScope', '$location',
+      function ($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
           if (error === "AUTH_REQUIRED") {
             $location.path("/login");

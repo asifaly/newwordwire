@@ -1,5 +1,5 @@
 {
-  "name": "wwnew",
+  "name": "wordWire",
   "version": "0.0.0",
   "dependencies": {
     "imagemin": "^3.1.0",

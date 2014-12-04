@@ -3,7 +3,7 @@
 describe('Filter: regtostr', function () {
 
   // load the filter's module
-  beforeEach(module('wwnewApp'));
+  beforeEach(module('wordWire'));
 
   // initialize a new instance of the filter before each test
   var regtostr;

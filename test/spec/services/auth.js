@@ -3,7 +3,7 @@
 describe('Service: Auth', function () {
 
   // load the service's module
-  beforeEach(module('wwnewApp'));
+  beforeEach(module('wordWire'));
 
   // instantiate service
   var Auth;

@@ -13,7 +13,7 @@
    * # score
    * Filter in the wwnewApp.
    */
-  angular.module('wwnewApp')
+  angular.module('wordWire')
     .filter('score', calcScore);
 
   function calcScore() {

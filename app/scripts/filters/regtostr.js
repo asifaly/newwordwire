@@ -13,7 +13,7 @@
    * # regtostr
    * Filter in the wwnewApp.
    */
-  angular.module('wwnewApp')
+  angular.module('wordWire')
     .filter('regtostr', regxToString);
 
   function regxToString() {

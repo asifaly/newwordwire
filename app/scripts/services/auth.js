@@ -12,7 +12,7 @@
    * # Auth
    * Service in the wwnewApp.
    */
-  angular.module('wwnewApp')
+  angular.module('wordWire')
     .service('Auth', ['$firebaseAuth', 'FIREBASE_URI', Auth]);
 
   function Auth($firebaseAuth, FIREBASE_URI) {

@@ -13,7 +13,7 @@
    * # firstlet
    * Filter in the wwnewApp.
    */
-  angular.module('wwnewApp')
+  angular.module('wordWire')
     .filter('firstlet', firstLetter);
 
   function firstLetter() {
