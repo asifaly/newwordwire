@@ -7,11 +7,11 @@
 
   /**
    * @ngdoc filter
-   * @name wwnewApp.filter:strtoregex
+   * @name wordWire.filter:strtoregex
    * @function
    * @description
    * # strtoregex
-   * Filter in the wwnewApp.
+   * Filter in the wordWire.
    */
   angular.module('wordWire')
     .filter('strtoregex', strToRegex);

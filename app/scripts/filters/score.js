@@ -7,11 +7,11 @@
 
   /**
    * @ngdoc filter
-   * @name wwnewApp.filter:score
+   * @name wordWire.filter:score
    * @function
    * @description
    * # score
-   * Filter in the wwnewApp.
+   * Filter in the wordWire.
    */
   angular.module('wordWire')
     .filter('score', calcScore);

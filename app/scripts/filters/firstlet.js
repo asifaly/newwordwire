@@ -7,11 +7,11 @@
 
   /**
    * @ngdoc filter
-   * @name wwnewApp.filter:firstlet
+   * @name wordWire.filter:firstlet
    * @function
    * @description
    * # firstlet
-   * Filter in the wwnewApp.
+   * Filter in the wordWire.
    */
   angular.module('wordWire')
     .filter('firstlet', firstLetter);

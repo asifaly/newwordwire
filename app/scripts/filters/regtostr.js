@@ -7,11 +7,11 @@
 
   /**
    * @ngdoc filter
-   * @name wwnewApp.filter:regtostr
+   * @name wordWire.filter:regtostr
    * @function
    * @description
    * # regtostr
-   * Filter in the wwnewApp.
+   * Filter in the wordWire.
    */
   angular.module('wordWire')
     .filter('regtostr', regxToString);

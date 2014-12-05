@@ -7,10 +7,10 @@
 
   /**
    * @ngdoc function
-   * @name wwnewApp.controller:GameCtrl
+   * @name wordWire.controller:GameCtrl
    * @description
    * # GameCtrl
-   * Controller of the wwnewApp
+   * Controller of the wordWire
    */
   angular.module('wordWire')
     .controller('GameCtrl', ['FIREBASE_URI', '$timeout', '$filter', 'WordsService', GameCtrl]);

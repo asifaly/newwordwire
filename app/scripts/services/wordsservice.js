@@ -7,10 +7,10 @@
 
   /**
    * @ngdoc service
-   * @name wwnewApp.WordsService
+   * @name wordWire.WordsService
    * @description
    * # WordsService
-   * Service in the wwnewApp.
+   * Service in the wordWire.
    */
   angular.module('wordWire')
     .service('WordsService', ['$http', '$log', '$q', 'FIREBASE_URI', '$firebase', WordsService]);
