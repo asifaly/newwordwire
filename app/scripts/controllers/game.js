@@ -25,6 +25,7 @@
       name: '',
       score: ''
     };
+
     self.isReadOnly = false;
 
     self.computeScore = function computeScore(newWord) {
@@ -49,34 +50,16 @@
     self.addWord = function firebaseAddWord() {
       self.isReadOnly = true;
 
-      var lastWord = $filter('lowercase')(self.newword.name),
-        firstLetter = $filter('firstlet')(lastWord),
-        pattern = $filter('regtostr')(self.stats.pattern, firstLetter);
-
-      WordsService.checkWord(lastWord).then(function checkWordPass(data) {
-        WordsService.dictCheck(lastWord).then(function dictCheckPass(data) {
-          self.newword = angular.extend(self.newword, data);
-          console.log(self.newword);
-
-          WordsService.addWord(angular.copy(self.newword)).then(function addWordPass(nref) {
-            self.message = lastWord + " was successfully Added";
-            self.isReadOnly = false;
-            self.theForm.$setPristine();
-            self.newword = {
-              name: '',
-              score: ''
-            };
-          });
-
-          WordsService.setStats(lastWord, pattern, firstLetter).then(function setStatsPass(stref) {
-            console.info("stats added at " + stref);
-          });
-        }).catch(function dictCheckFail(error) {
-          self.message = error;
-          self.isReadOnly = false;
-        });
-      }).catch(function checkWordFail(error) {
+      WordsService.checkWord(self.newword, self.stats.pattern).then(function (message){
+        self.message = message;
+        self.theForm.$setPristine();
+        self.newword = {
+          name: '',
+          score: ''
+        };
+      }).catch(function (error){
         self.message = error;
+      }).finally(function (){
         self.isReadOnly = false;
       });
     };
