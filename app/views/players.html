@@ -1,5 +1,14 @@
 <ul class="list-group">
-    <li class="list-group-item" data-ng-repeat="(id,onlineuser) in usr.onlineusers | orderBy: '-$id'">
+    <li class="list-group-item" data-ng-repeat="(id,onlineuser) in inv.onlineusers | orderBy: '-$id'">
         <img data-ng-src="{{onlineuser.avatar}}" height="45" width="45" alt="profile pic" class="picy" /><span>{{onlineuser.displayName}}</span>
+      <button type="button" id="wordy" class="btn btn-info pull-right" data-ng-click="inv.invite(onlineuser.uid)">Invite To Play</button>
     </li>
+</ul>
+  <h3>Invites Sent</h3>
+<ul class="list-group">
+  <li class="list-group-item" data-ng-repeat="sent in inv.invitesSent">{{sent.To}}</li>
+</ul>
+  <h3>Invites Recd</h3>
+<ul class="list-group">
+  <li class="list-group-item" data-ng-repeat="recd in inv.invitesRecd">{{recd.from}}<button type="button" class="pull-right" data-ng-click="inv.removeInvite($index, recd.sentkey, recd.from)">Reject Invite</button></li>
 </ul>

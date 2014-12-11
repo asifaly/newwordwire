@@ -1,14 +1,22 @@
 <div class="row">
-    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-init="gm.message=null">
-        <form name="gm.theForm" class="form-horizontal" data-ng-submit="gm.theForm.$valid && gm.addWord()" novalidate>
-            <div class="input-group" data-ng-class="{ 'has-error' : gm.theForm.word.$invalid && !gm.theForm.word.$pristine }">
-                <input type="text" name="word" id="input" placeholder="Input Word" class="form-control" data-ng-model="gm.newword.name" data-ng-minlength="2" data-ng-pattern="gm.stats.pattern" data-ng-required="true" data-ng-readonly="gm.isReadOnly" data-ng-change="gm.computeScore(gm.newword.name)"><span class="input-group-addon" data-ng-bind="gm.newword.score"></span>
-            </div>
-            <p data-ng-show="gm.theForm.word.$error.required && !gm.theForm.$pristine" class="help-block">Field cannot be empty.</p>
-            <p data-ng-show="gm.theForm.$valid" class="help-block">Awesome! Hit Enter/Return Key when done!</p>
-            <p data-ng-show="gm.theForm.word.$error.minlength" class="help-block">Word is too short.</p>
-            <p data-ng-show="gm.theForm.word.$error.pattern || gm.theForm.word.$pristine" class="help-block">Start word with letter <strong>{{gm.stats.firstletter}}</strong>.</p>
-            <p data-ng-show="gm.message !==null" ng-bind="gm.message" class="help-block"></p>
-        </form>
-    </div>
+  <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-init="gm.message=null">
+    <form name="gm.theForm" class="form-horizontal" data-ng-submit="gm.theForm.$valid && gm.addWord()" novalidate>
+      <div class="input-group" data-ng-class="{ 'has-error' : gm.theForm.word.$invalid && !gm.theForm.word.$pristine }">
+        <input type="text" name="word" id="input" placeholder="Input Word" class="form-control"
+               data-ng-model="gm.newword.name" data-ng-minlength="2" data-ng-pattern="gm.stats.pattern"
+               data-ng-required="true" data-ng-readonly="gm.isReadOnly"
+               data-ng-change="gm.computeScore(gm.newword.name)"><span class="input-group-addon"
+                                                                       data-ng-bind="gm.newword.score"></span>
+      </div>
+      <div data-ng-messages="gm.theForm.word.$error">
+        <div data-ng-message="pattern">Start word with letter <strong>{{gm.stats.firstletter}}</strong></div>
+        <div data-ng-message="required">Start word with letter <strong>{{gm.stats.firstletter}}</strong></div>
+        <div data-ng-message="minlength">Word is too short, minimum 2 characters</div>
+      </div>
+      <div data-ng-messages="gm.theForm">
+      <div data-ng-message="$valid" class="help-block">Awesome! Hit Enter/Return Key when done!</div>
+      </div>
+      <p data-ng-show="gm.message !==null" ng-bind="gm.message" class="help-block"></p>
+    </form>
+  </div>
 </div>

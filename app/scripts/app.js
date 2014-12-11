@@ -25,9 +25,9 @@
       'firebase'
     ]).constant('FIREBASE_URI', 'https://wordwire.firebaseio.com/').run(['$rootScope', '$location',
       function ($rootScope, $location) {
-        $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
-          if (error === "AUTH_REQUIRED") {
-            $location.path("/login");
+        $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
+          if (error === 'AUTH_REQUIRED') {
+            $location.path('/login');
           }
         });
       }]).config(['$routeProvider',
@@ -35,7 +35,7 @@
         $routeProvider.
           when('/game', {
             templateUrl: 'views/game.html',
-            controller: 'GameCtrl',
+            controller: 'GameController',
             controllerAs: 'gm',
             resolve: {
               'currentAuth': ['Auth',
@@ -46,7 +46,7 @@
           }).
           when('/login', {
             templateUrl: 'views/login.html',
-            controller: 'UserCtrl',
+            controller: 'UserController',
             controllerAs: 'usr',
             resolve: {
               'currentAuth': ['Auth',
@@ -57,8 +57,8 @@
           }).
           when('/players', {
             templateUrl: 'views/players.html',
-            controller: 'UserCtrl',
-            controllerAs: 'usr',
+            controller: 'InvitesController',
+            controllerAs: 'inv',
             resolve: {
               'currentAuth': ['Auth',
                 function (Auth) {
@@ -68,7 +68,7 @@
           }).
           when('/words', {
             templateUrl: 'views/words.html',
-            controller: 'ListCtrl',
+            controller: 'ListController',
             controllerAs: 'list',
             resolve: {
               'currentAuth': ['Auth',
@@ -79,7 +79,7 @@
           }).
           when('/main', {
             templateUrl: 'views/main.html',
-            controller: 'UserCtrl',
+            controller: 'UserController',
             controllerAs: 'usr',
             resolve: {
               'currentAuth': ['Auth',

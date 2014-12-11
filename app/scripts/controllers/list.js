@@ -1,23 +1,21 @@
 /*jslint devel: true, maxerr: 50*/
-/*global wordWire*/
 /*global angular*/
-/*global Firebase*/
 (function () {
   'use strict';
 
   /**
    * @ngdoc function
-   * @name wordWire.controller:ListCtrl
+   * @name wordWire.controller:ListController
    * @description
-   * # ListCtrl
+   * # ListController
    * Controller of the wordWire
    */
   angular.module('wordWire')
-    .controller('ListCtrl', ['WordsService', ListCtrl]);
+    .controller('ListController', ['WordsService', ListCtrl]);
 
   function ListCtrl(WordsService) {
     var self = this;
-    WordsService.getWords().then(function (data) {
+    WordsService.getWords().then(function setWords (data) {
       self.words = data;
       self.active = data.length - 1;
     });

@@ -7,13 +7,13 @@
 
   /**
    * @ngdoc function
-   * @name wordWire.controller:GameCtrl
+   * @name wordWire.controller:GameController
    * @description
-   * # GameCtrl
+   * # GameController
    * Controller of the wordWire
    */
   angular.module('wordWire')
-    .controller('GameCtrl', ['FIREBASE_URI', '$timeout', '$filter', 'WordsService', GameCtrl]);
+    .controller('GameController', ['FIREBASE_URI', '$timeout', '$filter', 'WordsService', GameCtrl]);
 
   function GameCtrl(FIREBASE_URI, $timeout, $filter, WordsService) {
     //initialize pattern if it is not done, when app initializes, there is an error for invalid pattern

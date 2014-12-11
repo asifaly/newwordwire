@@ -13,7 +13,7 @@
    * Controller of the wordWire
    */
   angular.module('wordWire')
-    .controller('UserCtrl', ['UserService', '$location', 'Auth', UserCtrl]);
+    .controller('UserController', ['UserService', '$location', 'Auth', UserCtrl]);
 
   function UserCtrl(UserService, $location, Auth) {
     var self = this;
@@ -30,8 +30,6 @@
       avatar: ''
     };
 
-    self.onlineusers = UserService.getOnline();
-
     //logout user
     self.logout = function logout() {
       self.authObj.$unauth();
@@ -40,18 +38,18 @@
         displayName: '',
         uid: ''
       };
-      $location.path("/login");
+      $location.path('/login');
     };
 
     //social login user
     self.login = function socialLogin(provider) {
       Firebase.goOnline();
       self.authObj.$authWithOAuthPopup(provider).then(function authUser(authData) {
-        $location.path("/game");
+        $location.path('/game');
         UserService.addUser(authData).then(function addUserPass(data) {
           console.info(data);
         }).catch(function authFailed(error) {
-          console.error("Authentication failed:", error);
+          console.error('Authentication failed:', error);
         });
       });
     };
@@ -64,7 +62,7 @@
           self.user = data;
         });
       } else {
-        console.log("Logged out");
+        console.log('Logged out');
       }
     });
   }
